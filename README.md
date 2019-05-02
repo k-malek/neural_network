@@ -37,9 +37,9 @@ void draw()
   my_network.learning_step(0.01,inputs[n],outputs[n]);
 }
 
-Oof... done :) So, option one and optiontwo are simillar, teachw is learning process UNTILL program thinks, that it learned desired task. Teach function is more classic - lets you choose number of lessons for your network.
+Oof... done :) So, option one and option two are simillar, teachw is learning process which works UNTILL program thinks, that it learned desired task. Teach function is more classic - lets you choose number of lessons for your network.
 
-Third option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways be patient with it :) ). For many purposes error lower than 500 should be totally enough.
+Third option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways, be patient with it :) ). For many purposes error lower than 500 should be totally enough.
 
 # Save your network!
 
