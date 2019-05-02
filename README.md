@@ -2,7 +2,7 @@
 
 Created with Java it is my first neural network project. Files has been prepared with marvellous Processing 3 software sketchbook (make sure to check up processing.org!).
 
-Unfortunatelly program isn't 100% "newbie friendly", which means that using it requires at least basic knowledge of both Java and how neural networks actually work. Knowledge of Processing refferences moght be also helpful.
+Unfortunatelly program isn't 100% "newbie friendly", which means that using it requires at least basic knowledge of both Java and how neural networks actually work. Knowledge of Processing refferences might be also helpful.
 
 # Files content / usage of program
 
