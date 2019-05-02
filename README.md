@@ -23,8 +23,7 @@ For activation function I've chosen hyperbolic tangent. I provided program with 
 
 - teach(Network siec,int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
 - teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
-- 
-void setup()
+- void setup()
 {
   size(800,600);
   my_network=new Network(new int[]{2,4,3});
