@@ -8,8 +8,8 @@ Unfortunatelly program isn't 100% "newbie friendly", which means that using it r
 
 Files contain classes for neurons, layers of neurons, connections, layers of connections, and neural networks themselves. There are two types of neural network class constructors:
 
-a) Network(int[] neurons_per_layer)
-b) Network(int[] neurons_per_layer,float[][]wages,float[] biasses)
+- Network(int[] neurons_per_layer)
+- Network(int[] neurons_per_layer,float[][]wages,float[] biasses)
 
 first one creates Network object with random weight for each connection created and random biasses for layers. It only requires set of ints - desired number of neurons for every layer, ex. new Network(new int[]{2,4,3}) creates network with three layers: 2 neurons in input layer, 4 in hidden, 3 in output. Of course program lets you set weights of connections and biasses for network for yourself with second type of constructor.
 
@@ -21,9 +21,9 @@ Video file contains result of wlodek's work.
 
 For activation function I've chosen hyperbolic tangent. I provided program with three options of learning:
 
-a) teach(Network siec,int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
-b) teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
-c) 
+- teach(Network siec,int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
+- teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
+- 
 void setup()
 {
   size(800,600);
@@ -38,9 +38,9 @@ void draw()
   my_network.learning_step(0.01,inputs[n],outputs[n]);
 }
 
-Oof... done :) So, option a) and option b) are simillar, teachw is learning process UNTILL program thinks, that it learned desired task. Teach function is more classic - lets you choose number of lessons for your network.
+Oof... done :) So, option one and optiontwo are simillar, teachw is learning process UNTILL program thinks, that it learned desired task. Teach function is more classic - lets you choose number of lessons for your network.
 
-Option c) lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-down corner of canvas, so you actually know if your network learns, or no (anyways be patient with it :) ). For many purposes error lower than 500 should be totally enough.
+Third option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways be patient with it :) ). For many purposes error lower than 500 should be totally enough.
 
 # Save your network!
 
