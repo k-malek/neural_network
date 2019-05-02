@@ -1,4 +1,7 @@
 Network wlodek;
+float kolorR;
+float kolorG;
+float kolorB;
 float[][] inputs=new float[][]{
 //zielony
 {map_color(0.0),map_color(255.0),map_color(0.0)},  
@@ -66,7 +69,7 @@ float[][] inputs=new float[][]{
 {map_color(10.0),map_color(10.0),map_color(10.0)},
 {map_color(5.0),map_color(5.0),map_color(5.0)},
 //mixy
-{map_color(161.0),map_color(145.0),map_color(46.0)},  //sraczkowaty
+{map_color(161.0),map_color(145.0),map_color(46.0)},  //jasnobrązowy
 {map_color(122.0),map_color(167.0),map_color(51.0)},   //dziwno-oliwkowy
 {map_color(163.0),map_color(217.0),map_color(2.0)}   //zielono-zółty
 };
@@ -137,7 +140,7 @@ float[][] outputs=new float[][]{
 {tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(1.0)},  
 {tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(1.0)},
 //mixy
-{tanh(0.1),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.9),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0)},  //sraczkowaty
+{tanh(0.1),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.9),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0)},  //jasnobrązowy
 {tanh(0.95),tanh(0.0),tanh(0.0),tanh(0.05),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0)},  //dziwno-oliwkowy
 {tanh(0.65),tanh(0.0),tanh(0.0),tanh(0.35),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0),tanh(0.0)}  //zielono-żółty
 };
@@ -171,38 +174,7 @@ void mouseClicked()
   wlodek.resolve_input(new float[]{map_color(kolorR),map_color(kolorG),map_color(kolorB)});
 }
 
-void save_n_sound(String zapis,Network siec)
-{
-  zapis+="new Network(new int[]{";
-  for(int i=0;i<siec.layers.length;i++)
-  {
-   int n=siec.layers[i].neurons.length;
-   zapis+=str(n);
-   if(i!=siec.layers.length-1) zapis+=",";
-  }
-  zapis+="},new float[][]{";
-  for(int i=0;i<siec.conn_layers.length;i++)
-  {
-    zapis+="{";
-    for(int j=0;j<siec.conn_layers[i].conns.length;j++)
-    {
-     float n=siec.conn_layers[i].conns[j].wage;
-     zapis+=str(n);
-     if(j!=siec.conn_layers[i].conns.length-1) zapis+=",";
-    }
-    zapis+="}";
-    if(i!=siec.conn_layers.length-1) zapis+=",";
-  }
-  zapis+="},new float[]{0.00";
-  for(int i=0;i<siec.layers.length;i++)
-  {
-   float n=siec.layers[i].bias;
-   if(i!=0)zapis+=str(n);
-   if(i!=siec.layers.length-1) zapis+=",";
-  }
-  zapis+="});";
-  println (zapis);
-}
+
 
 
 float map_color(float value)
@@ -240,41 +212,4 @@ void show_etykiety(Network siec)
       text(kolor,siec.layers[siec.layers.length-1].neurons[i].pos.x+150,siec.layers[siec.layers.length-1].neurons[i].pos.y+7.5);
     }
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-float tanh(float value)
-{
-  float e=2.718281828459;
-  float edov=pow(e,value);
-  float edo_v=pow(e,-value);
-  value=(edov-edo_v)/(edov+edo_v);
-  return value;
-}
-float atanh(float value)
-{
-  float e=2.718281828459;
-  value=0.5*log((1+value)/(1-value));
-  return value;
 }
