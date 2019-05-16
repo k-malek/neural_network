@@ -25,7 +25,7 @@ Txt files contains two of children of my program. Wlodek is network prepared to 
 
 # Learning process
 
-For activation function I've chosen hyperbolic tangent. I provided program with four options of learning:
+For activation function I've chosen hyperbolic tangent. I provided four options of learning:
 
 - my_network.teach(int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
 - my_network.teachw(float l_rate,float[][] inputs, float[][] outputs)
