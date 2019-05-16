@@ -15,11 +15,11 @@ first one creates Network object with random weight for each connection created 
 
 Downloadable files are ready-to-work for creation of new neural network of your own desire! "Neural_network" is the file you want to edit for your purposes.
 
-#Generations
+# Generations
 
 The latest feature of neural_network project contains generic algorythms. Now you can create population of neural networks nad let them all be taught simultaneously! Program chooses the best performer (choice based on total error value for every network) and makes new generation out of best-network copies. Of course I plan to add actual breeding and mutation algoritms in the project, but I was very satisfied with results of simple "copying-of-best algorithm".
 
-#Pre-prepared neural networks
+# Pre-prepared neural networks
 
 Txt files contains two of children of my program. Wlodek is network prepared to recognise colors with RGB values(mapped into 0 to 1 values). Video file contains result of wlodek's work. Vaclav is taught in more simple task - he recognizes if two input numers from 1 to 5 (again, mapped into 0 to 1 values) are same, or no.
 
