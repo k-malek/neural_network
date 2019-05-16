@@ -14,7 +14,7 @@ class Layer
     int n=amount-1;
     for(int i=0;i<amount;i++)
     {
-      int pos_y=height/2-25*n+50*i;
+      int pos_y=int(sizer.y)/2-25*n+50*i;
       neurons[i]=new Neuron(pos_x,pos_y,level); 
     }
   }
@@ -27,7 +27,7 @@ class Layer
     int n=amount-1;
     for(int i=0;i<amount;i++)
     {
-      int pos_y=height/2-25*n+50*i;
+      int pos_y=int(sizer.y)/2-25*n+50*i;
       neurons[i]=new Neuron(pos_x,pos_y,level); 
     }
   }

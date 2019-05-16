@@ -1,14 +1,3 @@
-void teach(Network siec,int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
-{
-  for(int i=0;i<n_lessons;i++)
-  {
-    int n=int(random(inputs.length));
-    siec.learning_step(l_rate,inputs[n],outputs[n]);
-    kolorR=demap_color(inputs[n][0]);
-    kolorG=demap_color(inputs[n][1]);
-    kolorB=demap_color(inputs[n][2]);
-  }
-}
 void teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
 {
   int error;
@@ -17,28 +6,29 @@ void teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
   {
     int n=int(random(inputs.length));
     siec.learning_step(l_rate,inputs[n],outputs[n]);
-    error=round(print_cost*100000.0);
+    error=round(siec.print_cost*100000.0);
     if(error==0) m++;
     else m=0;
   }
 }
 
-float tanh(float value)
+String full_neural_diagnostics(Network siec,float[][] inputs,float[][]outputs)
 {
-  float e=2.718281828459;
-  float edov=pow(e,value);
-  float edo_v=pow(e,-value);
-  value=(edov-edo_v)/(edov+edo_v);
-  return value;
-}
-float atanh(float value)
-{
-  float e=2.718281828459;
-  value=0.5*log((1+value)/(1-value));
-  return value;
+  String response;
+  float full_costs=0.0;
+  for(int i=0;i<inputs.length;i++)
+  {
+    siec.resolve_input(inputs[i]);
+    siec.calc_cost(outputs[i]);
+    full_costs+=siec.print_cost;
+  }
+  float avenger=full_costs/inputs.length;
+  siec.analysis_cost=avenger;
+  response="All costs: "+str(full_costs)+". Average: "+str(avenger)+".";
+  return response;
 }
 
-void save_n_sound(String zapis,Network siec)
+String save_n_sound(String zapis,Network siec)
 {
   zapis+="new Network(new int[]{";
   for(int i=0;i<siec.layers.length;i++)
@@ -68,5 +58,25 @@ void save_n_sound(String zapis,Network siec)
    if(i!=siec.layers.length-1) zapis+=",";
   }
   zapis+="});";
-  println (zapis);
+  return zapis;
+}
+
+void test(Network siec,float[][] inputs)
+{
+  int n=int(random(inputs.length));
+  siec.resolve_input(inputs[n]);  
+}
+
+float tanh(float value)
+{
+  float e=2.718281828459;
+  float edov=pow(e,value);
+  float edo_v=pow(e,-value);
+  value=(edov-edo_v)/(edov+edo_v);
+  return value;
+}
+float atanh(float value)
+{
+  value=0.5*log((1+value)/(1-value));
+  return value;
 }

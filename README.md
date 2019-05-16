@@ -13,16 +13,23 @@ Files contain classes for neurons, layers of neurons, connections, layers of con
 
 first one creates Network object with random weight for each connection created and random biasses for layers. It only requires set of ints - desired number of neurons for every layer, ex. new Network(new int[]{2,4,3}) creates network with three layers: 2 neurons in input layer, 4 in hidden, 3 in output. Of course program lets you set weights of connections and biasses for network for yourself with second type of constructor.
 
-Downloadable files aren't carte blanche! They are ready-to-go with pre-prepared (already taught) neural network for color recognizing task. Wlodek isn't perfect, but you can let him learn more :p. Otherwise, feel free to wipe clean Neural_network file (which is main file) and create new neural network on your own!
+Downloadable files are ready-to-work for creation of new neural network of your own desire! "Neural_network" is the file you want to edit for your purposes.
 
-Video file contains result of wlodek's work.
+#Generations
+
+The latest feature of neural_network project contains generic algorythms. Now you can create population of neural networks nad let them all be taught simultaneously! Program chooses the best performer (choice based on total error value for every network) and makes new generation out of best-network copies. Of course I plan to add actual breeding and mutation algoritms in the project, but I was very satisfied with results of simple "copying-of-best algorithm".
+
+#Pre-prepared neural networks
+
+Txt files contains two of children of my program. Wlodek is network prepared to recognise colors with RGB values(mapped into 0 to 1 values). Video file contains result of wlodek's work. Vaclav is taught in more simple task - he recognizes if two input numers from 1 to 5 (again, mapped into 0 to 1 values) are same, or no.
 
 # Learning process
 
-For activation function I've chosen hyperbolic tangent. I provided program with three options of learning:
+For activation function I've chosen hyperbolic tangent. I provided program with four options of learning:
 
-- teach(Network siec,int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
-- teachw(Network siec,float l_rate,float[][] inputs, float[][] outputs)
+- my_network.teach(int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
+- my_network.teachw(float l_rate,float[][] inputs, float[][] outputs)
+- my_generation.teach(int n_generations, int n_lessons,float l_rate,float[][] inputs, float[][] outputs)
 - void setup()
 {
   size(800,600);
@@ -39,7 +46,9 @@ void draw()
 
 Oof... done :) So, option one and option two are simillar, teachw is learning process which works UNTILL program thinks, that it learned desired task. Teach function is more classic - lets you choose number of lessons for your network.
 
-Third option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways, be patient with it :) ). For many purposes error lower than 500 should be totally enough.
+Of course you can teach whole generations with only one method. To do so, you may want to use the third option. Just type how many generations you want to teach and wait for RESULT LOG, which is auto-created during the process. It contains information about performance of every single network. I found it extremely helpful during my own work - rapid raises in average error values or "slow starts" gives you enough data, to rethink value of learning rate, size of network or number of lessons or population... There is still much to discover! 
+
+Fourth option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways, be patient with it :) ). For many purposes error lower than 500 should be totally enough.
 
 # Save your network!
 
