@@ -17,7 +17,7 @@ Downloadable files are ready-to-work for creation of new neural network of your 
 
 # Generations
 
-The latest feature of neural_network project contains generic algorythms. Now you can create population of neural networks nad let them all be taught simultaneously! Program chooses the best performer (choice based on total error value for every network) and makes new generation out of best-network copies. Of course I plan to add actual breeding and mutation algoritms in the project, but I was very satisfied with results of simple "copying-of-best algorithm".
+The latest feature of neural_network project contains generic algorythms. Now you can create population of neural networks nad let them all be taught simultaneously! Program chooses the best performer (choice based on total error value for every network) and makes new generation out of best-network copies. Of course I'm planning to add actual breeding and mutation algoritms in the project, but I was very satisfied with results of simple "copying-of-best algorithm".
 
 # Pre-prepared neural networks
 
@@ -48,10 +48,8 @@ Oof... done :) So, option one and option two are simillar, teachw is learning pr
 
 Of course you can teach whole generations with only one method. To do so, you may want to use the third option. Just type how many generations you want to teach and wait for RESULT LOG, which is auto-created during the process. It contains information about performance of every single network. I found it extremely helpful during my own work - rapid raises in average error values or "slow starts" gives you enough data, to rethink value of learning rate, size of network or number of lessons or population... There is still much to discover! 
 
-Fourth option lets you watch learning process live (yeah, fun! :D). It shows error function result x100000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways, be patient with it :) ). For many purposes error lower than 500 should be totally enough.
+Fourth option lets you watch learning process live (yeah, fun! :D). It shows error function result x100 000 in lower-right corner of canvas, so you actually know if your network learns, or no (anyways, be patient with it :) ). For many purposes error lower than 500 should be totally enough.
 
 # Save your network!
 
-Function save_n_sound(Network) prints constructor with weights and biasses for chosen network. You can copy and paste it into program and restore your network. It's helpful with long-range learning processes or when you wish to create another network and store effect of your last project somewhere on the txt file.
-
-By default save_n_sound function is bound to left mouse button click.
+Function save_n_sound(Network) returns String constructor with weights and biasses for chosen network. You can print, copy and paste it into program and restore your network. It's helpful with long-range learning processes or when you wish to create another network and store effect of your last project somewhere else on the txt file.
