@@ -89,7 +89,7 @@ class Generation
   void g_log(PrintWriter gen_log,int numer)
   {
     gen_log.println("Siec nr."+str(numer));
-    gen_log.println(save_n_sound("",vaclavs.networks[numer-1]));
+    //gen_log.println(save_n_sound("",vaclavs.networks[numer-1]));
     gen_log.println(full_neural_diagnostics(networks[numer-1],inputs,outputs));
     gen_log.println("---------------------------------------");
   }
